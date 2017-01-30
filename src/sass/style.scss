@@ -69,6 +69,14 @@ code {
     padding: 3px 6px 3px;
 }
 
+.highlight {
+    background: $code-background-color !important;
+    color: $code-foreground-color;
+    margin: 12px -24px 12px;
+    overflow-x: auto;
+    padding: 6px 24px 6px;
+}
+
 // partial style.
 .container {
     box-shadow: -16px 0px 12px -12px rgba(0, 0, 0, 0.6), 16px 0px 12px -12px rgba(0, 0, 0, 0.6);
@@ -170,12 +178,4 @@ article.post {
     section {
         margin-top: 64px;
     }
-}
-
-.highlight {
-    background: $code-background-color;
-    color: $code-foreground-color;
-    margin: 12px -24px 12px;
-    overflow-x: auto;
-    padding: 6px 24px 6px;
 }
