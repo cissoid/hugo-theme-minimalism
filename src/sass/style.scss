@@ -1,8 +1,9 @@
 // Configuration.
 $background-color: #F0F0F0;
-$code-foreground-color: #F8F8F2;
 $code-background-color: #1E1E20;
-$code-snippet-background-color: rgba(0, 0, 0, 0.04);
+$code-foreground-color: #F8F8F2;
+$code-snippet-background-color: rgba(0, 0, 0, 0.1);
+$code-snippet-foreground-color: #DC3522;
 $link-hover-color: #DC3522;
 $link-normal-color: #374140;
 $link-underline-color: #DC3522;
@@ -63,8 +64,9 @@ hr {
 
 code {
     background: $code-snippet-background-color;
+    color: $code-snippet-foreground-color;
     border-radius: 3px;
-    padding: 3px 3px 3px;
+    padding: 3px 6px 3px;
 }
 
 // partial style.
@@ -174,5 +176,6 @@ article.post {
     background: $code-background-color;
     color: $code-foreground-color;
     margin: 12px -24px 12px;
+    overflow-x: auto;
     padding: 6px 24px 6px;
 }
