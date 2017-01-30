@@ -1,5 +1,6 @@
 // Configuration.
 $background-color: #F0F0F0;
+$code-foreground-color: #F8F8F2;
 $code-background-color: #1E1E20;
 $code-snippet-background-color: rgba(0, 0, 0, 0.04);
 $link-hover-color: #DC3522;
@@ -64,14 +65,6 @@ code {
     background: $code-snippet-background-color;
     border-radius: 3px;
     padding: 3px 3px 3px;
-}
-
-.hljs {
-    background: $code-background-color;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 // partial style.
@@ -175,4 +168,11 @@ article.post {
     section {
         margin-top: 64px;
     }
+}
+
+.highlight {
+    background: $code-background-color;
+    color: $code-foreground-color;
+    margin: 12px -24px 12px;
+    padding: 6px 24px 6px;
 }
