@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main>
+    {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
+    <ul class="post-summary-list">
+    {{ range $paginator.Pages }}
+        <li>
+        {{ .Render "summary" }}
+        </li>
+    {{ end }}
+    </ul>
+    <ul class="paginator">
+        <li><a href="{{ if ne $paginator.First.URL $paginator.URL }}{{ $paginator.First.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&lt;&lt;</a></li>
+        <li><a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&lt;</a></li>
+        <li>&nbsp;{{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}&nbsp;</li>
+        <li><a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&gt;</a></li>
+        <li><a href="{{ if ne $paginator.Last.URL $paginator.URL }}{{ $paginator.Last.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&gt;&gt;</a></li>
+    </ul>
+</main>
+{{ end }}

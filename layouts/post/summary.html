@@ -1,0 +1,12 @@
+<article class="post-summary">
+    <header>
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <time>{{ .Date.Format "2006-01-02" }}</time>
+    </header>
+    <section>{{ .Summary }}</section>
+    <footer>
+{{ if .Truncated }}
+        <a href="{{ .Permalink }}">Read More...</a>
+{{ end }}
+    </footer>
+</article>
