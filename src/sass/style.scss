@@ -75,6 +75,10 @@ code {
     margin: 12px -24px 12px;
     overflow-x: auto;
     padding: 6px 24px 6px;
+
+    pre {
+        display:inline-block;
+    }
 }
 
 // partial style.
