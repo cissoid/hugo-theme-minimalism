@@ -1,13 +1,13 @@
 {{ define "main" }}
 <main>
     <ul class="post-summary-list">
-    {{ range first 10 .Site.Pages }}
+    {{ range first 10 .Site.RegularPages }}
         <li>
         {{ .Render "summary" }}
         </li>
     {{ end }}
     </ul>
-    {{ if gt (len .Site.Pages) 10 }}
+    {{ if gt (len .Site.RegularPages) 10 }}
     <a href= "{{ "/post/" | relLangURL }}">More posts</a>
     {{ end }}
 </main>

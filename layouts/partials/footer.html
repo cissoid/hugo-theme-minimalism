@@ -1,6 +1,6 @@
 <footer class="footer">
-{{ $beginYear := (index .Site.Pages (sub (len .Site.Pages) 1)).Date.Format "2006" }}
-{{ $endYear := (index .Site.Pages 0).Date.Format "2006" }}
+{{ $beginYear := (index .Site.Pages (sub (len .Site.RegularPages) 1)).Date.Format "2006" }}
+{{ $endYear := (index .Site.RegularPages 0).Date.Format "2006" }}
     <div class="copyright">&copy;{{ if eq $beginYear $endYear }}{{ $beginYear }}{{ else }}{{ $beginYear }}-{{ $endYear }}{{ end }} By {{ .Site.Copyright }}.</div>
     <div class="about">Built with <a href="https://gohugo.io">Hugo</a>, using theme <a href="https://github.com/cissoid/hugo-theme-minimalism">Minimalism</a>.</div>
 </footer>
