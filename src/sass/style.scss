@@ -92,7 +92,7 @@ code {
     padding: 6px 24px;
 
     pre {
-        display:inline-block;
+        display: inline-block;
     }
 }
 
@@ -152,7 +152,18 @@ ul.post-summary-list {
 article.post-summary {
 
     header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
         margin-bottom: 12px;
+
+        @media all and (max-width: 767px) {
+            flex-direction: column;
+
+            time {
+                align-self: flex-end;
+            }
+        }
 
         h2 {
             font-size: 2em;
