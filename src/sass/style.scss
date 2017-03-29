@@ -1,7 +1,7 @@
 // Configuration.
-$serif-font: source-serif-pro, "Times New Roman", Times, "Microsoft YaHei", "STXihei", serif !important;
-$sans-serif-font: source-sans-pro, "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", "STXihei", sans-serif !important;
-$monospace-font: source-code-pro, Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", Monaco, "Courier New", Courier, "Microsoft YaHei", "STXihei", monospace !important;
+$serif-font: source-serif-pro, Georgia, PingFangSC, "Microsoft YaHei", STXihei, serif;
+$sans-serif-font: source-sans-pro, Tahoma, Verdana, Arial, Helvetica, PingFangSC, "Microsoft YaHei", STXihei, sans-serif;
+$monospace-font: source-code-pro, Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", PingFangSC, "Microsoft YaHei", STXihei, monospace;
 $background-color: #F0F0F0;
 $code-background-color: #1E1E20;
 $code-foreground-color: #F8F8F2;
@@ -25,6 +25,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $serif-font;
+    font-weight: normal;
 }
 
 p {
