@@ -1,8 +1,10 @@
 {{ define "main" }}
 <main>
     <ul class="post-summary-list">
-    {{ range first 10 .Site.RegularPages }}
-        <li>
+    {{ range $idx, $page := first 10 .Site.RegularPages }}
+        {{ if $idx }}
+        <li><hr></li>
+        {{ end }}
         {{ .Render "summary" }}
         </li>
     {{ end }}

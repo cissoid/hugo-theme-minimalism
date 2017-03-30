@@ -1,12 +1,14 @@
 <header class="header">
-    <h1 class="title"><a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a></h1>
+    <h1><a href="{{ relLangURL "/" }}">{{ .Site.Title }}</a></h1>
+{{ if index .Site.Menus "navbar" }}
     <nav>
         <ul>
             <li>&nbsp;|&nbsp;</li>
-            <li><a href="{{ "/post/" | relLangURL }}">Posts</a></li>
+    {{ range .Site.Menus.navbar }}
+            <li><a href="{{ relLangURL .URL }}">{{ .Name }}</a></li>
             <li>&nbsp;|&nbsp;</li>
-            <li><a href="{{ "/about/" | relLangURL }}">About</a></li>
-            <li>&nbsp;|&nbsp;</li>
+    {{ end }}
         </ul>
     </nav>
+{{ end }}
 </header>

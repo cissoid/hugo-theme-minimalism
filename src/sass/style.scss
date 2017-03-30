@@ -2,6 +2,9 @@
 $serif-font: source-serif-pro, Georgia, PingFangSC, "Microsoft YaHei", STXihei, serif;
 $sans-serif-font: source-sans-pro, Tahoma, Verdana, Arial, Helvetica, PingFangSC, "Microsoft YaHei", STXihei, sans-serif;
 $monospace-font: source-code-pro, Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", PingFangSC, "Microsoft YaHei", STXihei, monospace;
+
+$mobile-max-width: 767px;
+
 $background-color: #F0F0F0;
 $code-background-color: #1E1E20;
 $code-foreground-color: #F8F8F2;
@@ -12,6 +15,7 @@ $link-normal-color: #374140;
 $link-underline-color: #DC3522;
 $link-visited-color: #AAAAAA;
 $summary-date-color: #555555;
+$summary-delimiter-color: rgba(0, 0, 0, 0.1);
 
 // Global style.
 html, body, h1, h2, h3, h4, h5, h6 {
@@ -74,8 +78,7 @@ a {
 }
 
 hr {
-    margin-left: -12px;
-    margin-right: -12px;
+    margin: 12px -12px;
 }
 
 code {
@@ -114,7 +117,7 @@ header.header {
     justify-content: space-between;
     margin-bottom: 12px;
 
-    h1.title {
+    h1 {
         font-size: 2.5em;
         margin-right: 24px;
     }
@@ -138,6 +141,11 @@ footer.footer {
     justify-content: space-between;
     margin-top: 10px;
     width: 100%;
+
+    @media all and (max-width: $mobile-max-width) {
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }
 
 ul.post-summary-list {
@@ -147,18 +155,24 @@ ul.post-summary-list {
     li {
         list-style-type: none;
         margin: 36px auto;
+
+        hr {
+            border-color: $summary-delimiter-color;
+            background-color: $summary-delimiter-color;
+            border: none;
+            height: 1px;
+        }
     }
 }
 
 article.post-summary {
-
     header {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         margin-bottom: 12px;
 
-        @media all and (max-width: 767px) {
+        @media all and (max-width: $mobile-max-width) {
             flex-direction: column;
 
             time {
@@ -194,20 +208,20 @@ ul.paginator {
 
 article.post {
     header {
-        margin-top: 32px;
 
         h1 {
             font-size: 2em;
             text-align: center;
+            margin-bottom: 24px;
         }
 
         time {
             display: block;
             text-align: right;
         }
-    }
 
-    section {
-        margin-top: 64px;
+        section {
+            margin: 24px auto;
+        }
     }
 }

@@ -2,7 +2,7 @@ name: "Minimalism"
 license: "MIT"
 licenselink: "https://github.com/cissoid/hugo-theme-minimalism/blob/master/LICENSE"
 description: ""
-homepage: "https://github.com/cissoid"
+homepage: "https://github.com/cissoid/hugo-theme-minimalism"
 tags: []
 features: ["minimalism"]
 min_version: 0.17
