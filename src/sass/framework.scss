@@ -1,0 +1,37 @@
+@import "global";
+
+header.header {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    nav {
+        ul, li {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+main {
+    margin: 12px 0;
+}
+
+footer.footer {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+
+    @media all and (max-width: $mobile-max-width) {
+        align-items: flex-end;
+        flex-direction: column;
+    }
+}

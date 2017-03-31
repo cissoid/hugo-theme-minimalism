@@ -1,7 +1,9 @@
 <article class="post-summary">
     <header>
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time>
+        <div class="description">
+            <time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time>
+        </div>
     </header>
     <section>
 {{ .Summary }}
