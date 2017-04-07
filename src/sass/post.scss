@@ -28,8 +28,8 @@ article.post {
         margin: 48px 0;
 
         h1, h2, h3, h4, h5, h6 {
-            font-weight: bold;
-            margin: 0.5em 0;
+            // font-weight: bold;
+            margin: 1em 0 0.5em 0;
         }
 
         h1 {
@@ -56,6 +56,18 @@ article.post {
             font-size: 1.0em;
         }
 
+        p {
+            line-height: 1.5em;
+        }
+
+        a {
+            color: $link-hover-color;
+
+            &:after {
+                background: $link-hover-color;
+            }
+        }
+
         code {
             background: $code-snippet-background-color;
             border-radius: 4px;
@@ -66,7 +78,7 @@ article.post {
         .highlight {
             background: $code-background-color !important;
             color: $code-foreground-color;
-            margin: 0.5em ($container-padding-size * -1);
+            margin: 1.5em ($container-padding-size * -1);
             overflow-x: auto;
             padding: 0 $container-padding-size;
 

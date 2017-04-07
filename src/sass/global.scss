@@ -1,12 +1,12 @@
-$serif-font: source-serif-pro, Georgia, PingFangSC, "Microsoft YaHei", STXihei, serif;
-$sans-serif-font: source-sans-pro, Tahoma, Verdana, Arial, Helvetica, PingFangSC, "Microsoft YaHei", STXihei, sans-serif;
-$monospace-font: source-code-pro, Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", PingFangSC, "Microsoft YaHei", STXihei, monospace;
+$chinese-font: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "STXihei", "Noto Sans CJK SC", "Source Han Sans CN";
+$serif-font: Georgia, $chinese-font, serif;
+$sans-serif-font: "Classic Grotesque W01", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "Hiragino Sans GB", Tahoma, Verdana, $chinese-font, sans-serif;
+$monospace-font: Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", PingFangSC, "Microsoft YaHei", STXihei, monospace;
 
 $background-color: rgb(245, 247, 249);
 
 $container-background-color: rgba(255, 255, 255, 0.9);
 $container-shadow-color: rgba(0, 0, 0, 0.2);
-
 
 $link-hover-color: #DC3522;
 $link-normal-color: #374140;
