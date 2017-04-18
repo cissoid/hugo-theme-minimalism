@@ -1,47 +1,61 @@
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 
-const srcDir = path.join(__dirname, 'src');
-const destDir = path.join(__dirname, 'static', 'js');
 module.exports = {
-    // devtool: 'source-map',
     resolve: {
-        root: [srcDir]
+        modules: [
+            path.join(__dirname, 'src'),
+            'node_modules'
+        ]
     },
     entry: {
         minimalism: 'js/index'
     },
     output: {
-        path: destDir,
+        path: path.join(__dirname, 'static', 'js'),
         filename: '[name].bundle.js'
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
-            loader: 'babel'
+            use: [
+                'babel-loader?cacheDirectory',
+            ]
         }, {
-            test: /\.css$/,
-            loader: 'style!css!postcss'
-        }, {
-            test: /\.(scss|sass)$/,
-            loader: 'style!css!postcss!sass'
+            test: /\.scss$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: function() {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                },
+                'sass-loader'
+            ]
         }]
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production'),
+                NODE_ENV: JSON.stringify('production'),
             }
         }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.AggressiveMergingPlugin()
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            comments: false
+        }),
+        // new webpack.optimize.AggressiveMergingPlugin()
     ],
-    postcss: function() {
-        return [
-            autoprefixer()
-        ];
+    node: {
+        Buffer: false
     }
 };
