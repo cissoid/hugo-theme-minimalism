@@ -1,0 +1,129 @@
+/*
+ * File Name: base.scss
+ * Author: cissoid
+ * Created At: 2017-04-19T16:19:49+0800
+ * Last Modified: 2017-04-20T16:09:35+0800
+ */
+
+// styles. {{{
+$body-max-width: 768px;
+$body-padding: 24px;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 110%;
+}
+
+p, div {
+    cursor: default;
+    line-height: 150%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+code {
+    border-radius: 4px;
+    padding: 2px;
+}
+
+pre {
+    margin: 1em $body-padding * -1;
+    overflow-x: auto;
+    padding: 1em $body-padding;
+}
+
+// }}}
+
+// fonts. {{{
+$chinese-fonts: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "STXihei", "Noto Sans CJK SC", "Source Han Sans CN";
+$serif-fonts: Georgia, "Source Serif Pro", $chinese-fonts, serif;
+$sans-fonts: "Source Sans Pro", "Segoe UI", Helvetica Neue, Arial, Tahoma, Verdana, $chinese-fonts, sans-serif;
+$monospace-fonts: Consolas, "Source Code Pro", "Lucida Console", Monaco, "DejaVu Sans Mono", $chinese-fonts, monospace;
+
+body {
+    font-family: $sans-fonts;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $serif-fonts;
+    font-weight: normal;
+}
+
+pre, code {
+    font-family: $monospace-fonts;
+}
+
+h1 {
+    font-size: 1.3em * 1.3 * 1.3 * 1.3;
+}
+
+h2 {
+    font-size: 1.3em * 1.3 * 1.3;
+}
+
+h3 {
+    font-size: 1.3em * 1.3;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+// }}}
+
+// colors. {{{
+$title-color: #222222;
+$title-link-color: #444444;
+$title-link-hover-color: $title-color;
+$content-color: #444444;
+$description-color: #AAAAAA;
+
+$pre-background-color: #1E1E20;
+$pre-color: #F8F8F2;
+
+$code-background-color: $pre-background-color;
+$code-color: $pre-color;
+
+h1, h2, h3, h4, h5, h6 {
+    color: $title-color;
+
+    a {
+        color: $title-link-color;
+
+        &:hover {
+            color: $title-link-hover-color;
+        }
+    }
+}
+
+p, li {
+    color: $content-color;
+
+    a {
+        color: $content-color;
+    }
+}
+
+pre {
+    background-color: $pre-background-color;
+    color: $pre-color;
+}
+
+code {
+    background-color: $code-background-color;
+    color: $code-color;
+}
+
+// }}}
+
+// vim: foldmethod=marker foldlevel=0

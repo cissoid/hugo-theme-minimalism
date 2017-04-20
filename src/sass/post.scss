@@ -1,91 +1,62 @@
-@import "global";
+/*
+ * File Name: post.scss
+ * Author: cissoid
+ * Created At: 2017-04-20T15:46:27+0800
+ * Last Modified: 2017-04-20T16:26:53+0800
+ */
 
-$code-background-color: #1E1E20;
-$code-foreground-color: #F8F8F2;
-$code-snippet-background-color: rgba(0, 0, 0, 0.1);
-$code-snippet-foreground-color: #DC3522;
-
-$post-description-color: #AAAAAA;
+@import "base";
 
 article.post {
-    header {
-        margin: 48px 0;
+    margin: 3em 0;
+
+    h1 {
+        font-size: 1.3em * 1.3 * 1.3;
+    }
+
+    h2 {
+        font-size: 1.3em * 1.3;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    h4, h5, h6 {
+        font-size: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 1em 0;
+    }
+
+    & > header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 3em 0;
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 24px;
-            text-align: center;
+            padding: 0.5em 0;
         }
 
         .description {
-            color: $post-description-color;
-            display: flex;
-            justify-content: center;
+            color: $description-color;
         }
     }
 
-    section.post {
-        margin: 48px 0;
+    & > hr {
+        border: none;
+        margin: 3em 0;
 
-        h1, h2, h3, h4, h5, h6 {
-            // font-weight: bold;
-            margin: 1em 0 0.5em 0;
-        }
-
-        h1 {
-            font-size: 2.0em;
-        }
-
-        h2 {
-            font-size: 1.8em;
-        }
-
-        h3 {
-            font-size: 1.6em;
-        }
-
-        h4 {
-            font-size: 1.4em;
-        }
-
-        h5 {
-            font-size: 1.2em;
-        }
-
-        h6 {
-            font-size: 1.0em;
-        }
-
-        p {
-            line-height: 1.5em;
-        }
-
-        a {
-            color: $link-hover-color;
-
-            &:after {
-                background: $link-hover-color;
-            }
-        }
-
-        code {
-            background: $code-snippet-background-color;
-            border-radius: 4px;
-            color: $code-snippet-foreground-color;
-            padding: 4px 8px;
-        }
-
-        .highlight {
-            background: $code-background-color !important;
-            color: $code-foreground-color;
-            margin: 1.5em ($container-padding-size * -1);
-            overflow-x: auto;
-            padding: 0 $container-padding-size;
-
-            pre {
-                display: inline-block;
-                margin: 1em auto;
-            }
+        &:after {
+            color: #AAAAAA;
+            content: "...";
+            display: flex;
+            justify-content: center;
+            letter-spacing: 2em;
+            line-height: 200%;
+            margin-left: 2em;
         }
     }
 }

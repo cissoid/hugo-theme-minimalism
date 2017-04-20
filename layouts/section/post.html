@@ -2,9 +2,12 @@
 <main>
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
     <ul class="post-summary-list">
-    {{ range $paginator.Pages }}
+    {{ range $idx, $page :=  $paginator.Pages }}
+        {{ if $idx }}
+        <li><hr></li>
+        {{ end }}
         <li>
-        {{ .Render "summary" }}
+        {{ $page.Render "summary" }}
         </li>
     {{ end }}
     </ul>

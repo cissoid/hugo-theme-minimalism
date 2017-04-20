@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,11 @@
     {{ template "_internal/google_analytics_async.html" . }}
 </head>
 <body>
-    <div class="container">
 {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 <hr>
 {{ block "main" . }}{{ end }}
 {{ block "aside" . }}{{ end }}
 <hr>
 {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
-    </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer>
 {{ $beginYear := (index .Site.Pages (sub (len .Site.RegularPages) 1)).Date.Format "2006" }}
 {{ $endYear := (index .Site.RegularPages 0).Date.Format "2006" }}
     <div class="copyright">&copy;{{ if eq $beginYear $endYear }}{{ $beginYear }}{{ else }}{{ $beginYear }}-{{ $endYear }}{{ end }} By {{ .Site.Copyright }}.</div>
