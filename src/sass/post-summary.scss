@@ -2,7 +2,7 @@
  * File Name: post-summary.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:38+0800
- * Last Modified: 2017-04-20T16:09:55+0800
+ * Last Modified: 2017-04-21T18:42:46+0800
  */
 
 @import "base";
@@ -32,7 +32,11 @@ article.post-summary {
     flex-direction: column;
 
     & > header {
+        align-items: center;
+        display:flex;
+        flex-direction: column;
         padding-bottom: 12px;
+        text-align: center;
 
         h2 {
             line-height: 110%;
