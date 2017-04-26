@@ -2,33 +2,109 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2017-04-21T18:43:18+0800
+ * Last Modified: 2017-04-26T18:23:20+0800
  */
 
 @import "base";
 
-article.post {
-    margin: 3em 0;
+$pre-background-color: #1E1E20;
+$pre-color: #F8F8F2;
 
+$code-background-color: $pre-background-color;
+$code-color: $pre-color;
+
+@mixin post-style {
     h1 {
-        font-size: 1.3em * 1.3 * 1.3;
+        font-size: 1.1em * 1.1 * 1.1;
     }
 
     h2 {
-        font-size: 1.3em * 1.3;
+        font-size: 1.1em * 1.1;
     }
 
     h3 {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     h4, h5, h6 {
         font-size: 1em;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        margin: 1em 0;
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        margin: 1.5em 0;
     }
+
+    a {
+        color: #888888;
+        text-decoration: underline;
+    }
+
+    ol {
+        padding-left: 1em;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1em;
+    }
+
+    blockquote {
+        background-color: #666666;
+        margin: 0 ($body-padding * -1);
+        padding-left: 6px;
+
+        & > p {
+            background-color: #F5F7F9;
+            font-style: italic;
+            padding: 1em $body-padding 1em ($body-padding - 6px);
+        }
+    }
+
+    img {
+        margin: 1em ($body-padding * -1);
+        max-width: $body-max-width;
+
+        @media all and (max-width: $body-max-width - 1px) {
+            max-width: 100vw;
+        }
+    }
+
+    code {
+        background-color: $code-background-color;
+        border-radius: 4px;
+        color: $code-color;
+        padding: 2px;
+    }
+
+    pre {
+        background-color: $pre-background-color;
+        color: $pre-color;
+        margin: 1em ($body-padding * -1);
+        overflow-x: auto;
+        padding: 1em $body-padding;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: gray;
+        box-sizing: border-box;
+        overflow: auto;
+        width: 100%;
+
+        tr:nth-child(2n) {
+            background-color: #F8F8F8;
+        }
+
+        th, td {
+            border: 1px solid #DDDDDD;
+            padding: 6px 12px;
+        }
+    }
+}
+
+article.post {
+    margin: 3em 0;
 
     & > header {
         align-items: center;
@@ -44,6 +120,10 @@ article.post {
         .description {
             color: $description-color;
         }
+    }
+
+    & > section.post {
+        @include post-style;
     }
 
     & > hr {

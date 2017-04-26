@@ -2,7 +2,7 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2017-04-20T16:09:35+0800
+ * Last Modified: 2017-04-26T14:05:23+0800
  */
 
 // styles. {{{
@@ -24,22 +24,11 @@ p, div {
 }
 
 ul {
-    list-style: none;
+    list-style-type: none;
 }
 
 a {
     text-decoration: none;
-}
-
-code {
-    border-radius: 4px;
-    padding: 2px;
-}
-
-pre {
-    margin: 1em $body-padding * -1;
-    overflow-x: auto;
-    padding: 1em $body-padding;
 }
 
 // }}}
@@ -64,64 +53,44 @@ pre, code {
 }
 
 h1 {
-    font-size: 1.3em * 1.3 * 1.3 * 1.3;
+    font-size: 1.2em * 1.2 * 1.2 * 1.2;
 }
 
 h2 {
-    font-size: 1.3em * 1.3 * 1.3;
+    font-size: 1.2em * 1.2 * 1.2;
 }
 
 h3 {
-    font-size: 1.3em * 1.3;
+    font-size: 1.2em * 1.2;
 }
 
 h4 {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 // }}}
 
 // colors. {{{
 $title-color: #222222;
-$title-link-color: #444444;
-$title-link-hover-color: $title-color;
 $content-color: #444444;
 $description-color: #AAAAAA;
-
-$pre-background-color: #1E1E20;
-$pre-color: #F8F8F2;
-
-$code-background-color: $pre-background-color;
-$code-color: $pre-color;
+$link-color: #444444;
+$link-hover-color: #222222;
 
 h1, h2, h3, h4, h5, h6 {
     color: $title-color;
-
-    a {
-        color: $title-link-color;
-
-        &:hover {
-            color: $title-link-hover-color;
-        }
-    }
 }
 
 p, li {
     color: $content-color;
+}
 
-    a {
-        color: $content-color;
+a {
+    color: $link-color;
+
+    &:hover {
+        color: $link-hover-color;
     }
-}
-
-pre {
-    background-color: $pre-background-color;
-    color: $pre-color;
-}
-
-code {
-    background-color: $code-background-color;
-    color: $code-color;
 }
 
 // }}}
