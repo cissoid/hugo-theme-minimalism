@@ -2,7 +2,7 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2017-04-26T14:05:23+0800
+ * Last Modified: 2017-04-27T14:32:42+0800
  */
 
 // styles. {{{
@@ -18,9 +18,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 110%;
 }
 
-p, div {
+p, ol, ul, div {
     cursor: default;
-    line-height: 150%;
+    line-height: 180%;
 }
 
 ul {
