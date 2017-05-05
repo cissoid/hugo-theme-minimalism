@@ -2,7 +2,7 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2017-05-02T12:21:14+0800
+ * Last Modified: 2017-05-05T18:19:22+0800
  */
 
 @import "base";
@@ -88,6 +88,18 @@ $code-background-color: #EEEEEE;
         margin: 0 ($body-padding * -1);
         overflow-x: auto;
         padding: 1em $body-padding;
+
+        @media print {
+            color: $content-color;
+        }
+    }
+
+    kbd {
+        background-color: #F7F7F7;
+        box-shadow: 1px 1px 1px #777777;
+        border-radius: 4px;
+        margin: 0 2px;
+        padding: 2px 5px;
     }
 
     table {

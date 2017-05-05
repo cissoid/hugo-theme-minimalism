@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     resolve: {
@@ -12,8 +13,8 @@ module.exports = {
         minimalism: 'js/index'
     },
     output: {
-        path: path.join(__dirname, 'static', 'js'),
-        filename: '[name].bundle.js'
+        path: path.join(__dirname, 'static'),
+        filename: path.join('js', '[name].bundle.js')
     },
     module: {
         rules: [{
@@ -23,21 +24,23 @@ module.exports = {
             ]
         }, {
             test: /\.scss$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: function() {
-                            return [
-                                require('autoprefixer')
-                            ];
-                        }
-                    }
-                },
-                'sass-loader'
-            ]
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    // {
+                    //     loader: 'postcss-loader',
+                    //     options: {
+                    //         plugins: function() {
+                    //             return [
+                    //                 require('autoprefixer')
+                    //             ];
+                    //         }
+                    //     }
+                    // },
+                    'sass-loader'
+                ]
+            })
         }]
     },
     plugins: [
@@ -54,6 +57,7 @@ module.exports = {
             comments: false
         }),
         // new webpack.optimize.AggressiveMergingPlugin()
+        new ExtractTextPlugin(path.join('css', 'minimalism.bundle.css'))
     ],
     node: {
         Buffer: false

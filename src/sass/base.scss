@@ -2,7 +2,7 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2017-04-27T14:32:42+0800
+ * Last Modified: 2017-05-03T14:15:37+0800
  */
 
 // styles. {{{
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
-pre, code {
+pre, code, kbd {
     font-family: $monospace-fonts;
 }
 
