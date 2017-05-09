@@ -9,6 +9,9 @@
                 <time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time>
             </div>
         </header>
+    {{ if .Params.cloudmusic }}
+        <iframe class="cloudmusic" src="//music.163.com/outchain/player?type=2&auto=0&height=66&id={{ .Params.cloudmusic }}"></iframe>
+    {{ end }}
         <section class="post">
     {{ .Content }}
         </section>
