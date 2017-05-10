@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
     <ul class="post-summary-list">
-    {{ range $idx, $page := first 10 .Site.RegularPages }}
+    {{ range $idx, $page := first 10 (where .Site.RegularPages "Type" "post") }}
         {{ if $idx }}
         <li><hr></li>
         {{ end }}
