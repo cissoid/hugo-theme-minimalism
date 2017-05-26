@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractCSS = new ExtractTextPlugin(path.join('css', 'minimalism.bundle.css'));
 
 module.exports = {
     resolve: {
@@ -24,20 +26,20 @@ module.exports = {
             ]
         }, {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
+            use: extractCSS.extract({
                 fallback: 'style-loader',
                 use: [
                     'css-loader',
-                    // {
-                    //     loader: 'postcss-loader',
-                    //     options: {
-                    //         plugins: function() {
-                    //             return [
-                    //                 require('autoprefixer')
-                    //             ];
-                    //         }
-                    //     }
-                    // },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
                     'sass-loader'
                 ]
             })
@@ -57,7 +59,7 @@ module.exports = {
             comments: false
         }),
         // new webpack.optimize.AggressiveMergingPlugin()
-        new ExtractTextPlugin(path.join('css', 'minimalism.bundle.css'))
+        extractCSS
     ],
     node: {
         Buffer: false
