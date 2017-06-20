@@ -1,6 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const extractCSS = new ExtractTextPlugin(path.join('css', 'minimalism.bundle.css'));
 
@@ -59,6 +60,7 @@ module.exports = {
             comments: false
         }),
         // new webpack.optimize.AggressiveMergingPlugin()
+        new webpack.optimize.ModuleConcatenationPlugin(),
         extractCSS
     ],
     node: {
