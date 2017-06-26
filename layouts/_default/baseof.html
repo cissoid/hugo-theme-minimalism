@@ -8,6 +8,7 @@
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
     <link rel="stylesheet" href="{{ "css/minimalism.bundle.css" | relURL }}">
+    {{ template "_internal/google_analytics_async.html" . }}
 </head>
 <body>
 {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
@@ -16,7 +17,5 @@
 {{ block "aside" . }}{{ end }}
 <hr>
 {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
-
-{{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
