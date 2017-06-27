@@ -2,7 +2,7 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2017-05-09T17:00:50+0800
+ * Last Modified: 2017-06-27T17:39:42+0800
  */
 
 @import "base";
@@ -140,13 +140,27 @@ article.post {
         }
     }
 
-    & > iframe.cloudmusic {
-        border: 0;
-        frameborder: "no";
-        height: 86px;
-        marginheight: 0;
-        marginwidth: 0;
-        width: 100%;
+    & > section.cloudmusic {
+        iframe {
+            border: 0;
+            frameborder: "no";
+            height: 86px;
+            marginheight: 0;
+            marginwidth: 0;
+            width: 100%;
+        }
+    }
+
+    & > section.license {
+        background-color: #666666;
+        margin: 0 ($body-padding * -1);
+        padding-left: 6px;
+
+        & > p {
+            background-color: #F5F7F9;
+            font-style: italic;
+            padding: 1em $body-padding 1em ($body-padding - 6px);
+        }
     }
 
     & > section.post {

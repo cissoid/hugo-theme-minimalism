@@ -1,0 +1,13 @@
+cc:
+    - id: by/4.0
+      name: Creative Commons Attribution 4.0 International License
+    - id: by-nc/4.0
+      name: Creative Commons Attribution-NonCommercial 4.0 International License
+    - id: by-nd/4.0
+      name: Creative Commons Attribution-NoDerivatives 4.0 International License
+    - id: by-nc-nd/4.0
+      name: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+    - id: by-sa/4.0
+      name: Creative Commons Attribution-ShareAlike 4.0 International License
+    - id: by-nc-sa/4.0
+      name: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
