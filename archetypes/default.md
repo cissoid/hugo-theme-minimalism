@@ -1,5 +1,9 @@
 ---
 draft: true
-cloudmusic:
-license: by-nc-sa/4.0
+categories:
+tags:
+
+minimalism:
+    cloudmusic:
+    license: by-nc-sa/4.0
 ---

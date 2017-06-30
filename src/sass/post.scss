@@ -2,7 +2,7 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2017-06-27T17:39:42+0800
+ * Last Modified: 2017-06-30T11:15:16+0800
  */
 
 @import "base";
@@ -135,8 +135,13 @@ article.post {
             padding: 0.5em 0;
         }
 
-        .description {
-            color: $description-color;
+        ul.description {
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                color: $description-color;
+            }
         }
     }
 
@@ -160,6 +165,10 @@ article.post {
             background-color: #F5F7F9;
             font-style: italic;
             padding: 1em $body-padding 1em ($body-padding - 6px);
+
+            a {
+                color: #4183C4;
+            }
         }
     }
 

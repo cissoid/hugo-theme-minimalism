@@ -5,17 +5,23 @@
     <article class="post">
         <header>
             <h1>{{ .Title }}</h1>
-            <div class="description">
-                <time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time>
-            </div>
+            <ul class="description">
+                    <li><time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time></li>
+    {{ if (index .Params "tags") }}
+        {{ if ge (len .Params.tags) 0 }}
+                    <li>&nbsp;|&nbsp;</li>
+                    <li>{{ delimit .Params.tags ", " }}</li>
+        {{ end }}
+    {{ end }}
+            </ul>
         </header>
-    {{ if .Params.cloudmusic }}
+    {{ if .Params.minimalism.cloudmusic }}
         <section class="cloudmusic">
-            <iframe src="//music.163.com/outchain/player?type=2&auto=0&height=66&id={{ .Params.cloudmusic }}"></iframe>
+            <iframe src="//music.163.com/outchain/player?type=2&auto=0&height=66&id={{ .Params.minimalism.cloudmusic }}"></iframe>
         </section>
     {{ end }}
-    {{ if .Params.license }}
-        {{ $articleLicense := .Params.license }}
+    {{ if .Params.minimalism.license }}
+        {{ $articleLicense := .Params.minimalism.license }}
         <section class="license">
         {{ range $_, $license := .Site.Data.minimalism.licenses.cc }}
             {{ if eq $license.id $articleLicense }}
