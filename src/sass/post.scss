@@ -2,7 +2,7 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2017-06-30T11:15:16+0800
+ * Last Modified: 2017-08-07T16:31:52+0800
  */
 
 @import "base";
@@ -13,181 +13,181 @@ $pre-color: #F8F8F2;
 $code-background-color: #EEEEEE;
 
 @mixin post-style {
-    & > * {
-        margin: 24px 0;
+  & > * {
+    margin: 24px 0;
+  }
+
+  h1 {
+    border-bottom: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    font-size: 1.1em * 1.1 * 1.1;
+    margin-top: 36px;
+    padding-bottom: 0.5em;
+  }
+
+  h2 {
+    border-bottom: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    font-size: 1.1em * 1.1;
+    padding-bottom: 0.5em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  h4, h5, h6 {
+    font-size: 1em;
+  }
+
+  a {
+    color: #4183C4;
+  }
+
+  ol {
+    padding-left: 1em;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 1em;
+  }
+
+  blockquote {
+    background-color: #666666;
+    margin: 0 ($body-padding * -1);
+    padding-left: 6px;
+
+    & > p {
+      background-color: #F5F7F9;
+      font-style: italic;
+      padding: 1em $body-padding 1em ($body-padding - 6px);
+    }
+  }
+
+  img {
+    margin: 0 ($body-padding * -1);
+    width: $body-max-width;
+
+    @media all and (max-width: $body-max-width - 1px) {
+      width: 100vw;
+    }
+  }
+
+  code {
+    background-color: $code-background-color;
+    border-radius: 4px;
+    border: 1px solid #DDDDDD;
+    margin: 0 2px;
+    padding: 2px 5px;
+  }
+
+  pre {
+    background-color: $pre-background-color;
+    color: $pre-color;
+    margin: 0 ($body-padding * -1);
+    overflow-x: auto;
+    padding: 1em $body-padding;
+
+    @media print {
+      color: $content-color;
+    }
+  }
+
+  kbd {
+    background-color: #F7F7F7;
+    box-shadow: 1px 1px 1px #777777;
+    border-radius: 4px;
+    margin: 0 2px;
+    padding: 2px 5px;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-color: gray;
+    box-sizing: border-box;
+    overflow: auto;
+    width: 100%;
+
+    tr:nth-child(2n) {
+      background-color: #F8F8F8;
     }
 
-    h1 {
-        border-bottom: 1px solid #DDDDDD;
-        box-sizing: border-box;
-        font-size: 1.1em * 1.1 * 1.1;
-        margin-top: 36px;
-        padding-bottom: 0.5em;
+    th, td {
+      border: 1px solid #DDDDDD;
+      padding: 6px 12px;
     }
-
-    h2 {
-        border-bottom: 1px solid #DDDDDD;
-        box-sizing: border-box;
-        font-size: 1.1em * 1.1;
-        padding-bottom: 0.5em;
-    }
-
-    h3 {
-        font-size: 1.1em;
-    }
-
-    h4, h5, h6 {
-        font-size: 1em;
-    }
-
-    a {
-        color: #4183C4;
-    }
-
-    ol {
-        padding-left: 1em;
-    }
-
-    ul {
-        list-style-type: disc;
-        padding-left: 1em;
-    }
-
-    blockquote {
-        background-color: #666666;
-        margin: 0 ($body-padding * -1);
-        padding-left: 6px;
-
-        & > p {
-            background-color: #F5F7F9;
-            font-style: italic;
-            padding: 1em $body-padding 1em ($body-padding - 6px);
-        }
-    }
-
-    img {
-        margin: 0 ($body-padding * -1);
-        width: $body-max-width;
-
-        @media all and (max-width: $body-max-width - 1px) {
-            width: 100vw;
-        }
-    }
-
-    code {
-        background-color: $code-background-color;
-        border-radius: 4px;
-        border: 1px solid #DDDDDD;
-        margin: 0 2px;
-        padding: 2px 5px;
-    }
-
-    pre {
-        background-color: $pre-background-color;
-        color: $pre-color;
-        margin: 0 ($body-padding * -1);
-        overflow-x: auto;
-        padding: 1em $body-padding;
-
-        @media print {
-            color: $content-color;
-        }
-    }
-
-    kbd {
-        background-color: #F7F7F7;
-        box-shadow: 1px 1px 1px #777777;
-        border-radius: 4px;
-        margin: 0 2px;
-        padding: 2px 5px;
-    }
-
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        border-color: gray;
-        box-sizing: border-box;
-        overflow: auto;
-        width: 100%;
-
-        tr:nth-child(2n) {
-            background-color: #F8F8F8;
-        }
-
-        th, td {
-            border: 1px solid #DDDDDD;
-            padding: 6px 12px;
-        }
-    }
+  }
 }
 
 article.post {
-    margin: 24px 0;
+  margin: 24px 0;
 
-    & > header {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        margin: 3em 0;
-        text-align: center;
+  & > header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0;
+    text-align: center;
 
-        h1 {
-            padding: 0.5em 0;
-        }
-
-        ul.description {
-            display: flex;
-            justify-content: space-between;
-
-            li {
-                color: $description-color;
-            }
-        }
+    h1 {
+      padding: 0.5em 0;
     }
 
-    & > section.cloudmusic {
-        iframe {
-            border: 0;
-            frameborder: "no";
-            height: 86px;
-            marginheight: 0;
-            marginwidth: 0;
-            width: 100%;
-        }
+    ul.description {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        color: $description-color;
+      }
     }
+  }
 
-    & > section.license {
-        background-color: #666666;
-        margin: 0 ($body-padding * -1);
-        padding-left: 6px;
-
-        & > p {
-            background-color: #F5F7F9;
-            font-style: italic;
-            padding: 1em $body-padding 1em ($body-padding - 6px);
-
-            a {
-                color: #4183C4;
-            }
-        }
+  & > section.cloudmusic {
+    iframe {
+      border: 0;
+      frameborder: "no";
+      height: 86px;
+      marginheight: 0;
+      marginwidth: 0;
+      width: 100%;
     }
+  }
 
-    & > section.post {
-        @include post-style;
+  & > section.license {
+    background-color: #666666;
+    margin: 0 ($body-padding * -1);
+    padding-left: 6px;
+
+    & > p {
+      background-color: #F5F7F9;
+      font-style: italic;
+      padding: 1em $body-padding 1em ($body-padding - 6px);
+
+      a {
+        color: #4183C4;
+      }
     }
+  }
 
-    & > hr {
-        border: none;
-        margin: 3em 0;
+  & > section.post {
+    @include post-style;
+  }
 
-        &:after {
-            color: #AAAAAA;
-            content: "...";
-            display: flex;
-            justify-content: center;
-            letter-spacing: 2em;
-            line-height: 200%;
-            margin-left: 2em;
-        }
+  & > hr {
+    border: none;
+    margin: 3em 0;
+
+    &:after {
+      color: #AAAAAA;
+      content: "...";
+      display: flex;
+      justify-content: center;
+      letter-spacing: 2em;
+      line-height: 200%;
+      margin-left: 2em;
     }
+  }
 }

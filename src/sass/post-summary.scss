@@ -2,58 +2,58 @@
  * File Name: post-summary.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:38+0800
- * Last Modified: 2017-04-26T13:57:31+0800
+ * Last Modified: 2017-08-07T16:31:48+0800
  */
 
 @import "base";
 @import "post";
 
 ul.post-summary-list {
-    & > li {
-        padding: 12px 0;
+  & > li {
+    padding: 12px 0;
 
-        hr {
-            border: none;
+    hr {
+      border: none;
 
-            &:after {
-                color: #AAAAAA;
-                content: "...";
-                display: flex;
-                justify-content: center;
-                letter-spacing: 2em;
-                line-height: 200%;
-                margin-left: 2em;
-            }
-        }
+      &:after {
+        color: #AAAAAA;
+        content: "...";
+        display: flex;
+        justify-content: center;
+        letter-spacing: 2em;
+        line-height: 200%;
+        margin-left: 2em;
+      }
     }
+  }
 }
 
 article.post-summary {
+  display: flex;
+  flex-direction: column;
+
+  & > header {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
 
-    & > header {
-        align-items: center;
-        display:flex;
-        flex-direction: column;
-        text-align: center;
-
-        h2 {
-            line-height: 110%;
-            padding-bottom: 12px;
-        }
-
-        .description {
-            color: $description-color;
-            line-height: 150%;
-        }
+    h2 {
+      line-height: 110%;
+      padding-bottom: 12px;
     }
 
-    & > section {
-        @include post-style();
+    .description {
+      color: $description-color;
+      line-height: 150%;
     }
+  }
 
-    & > a {
-        align-self: center;
-    }
+  & > section {
+    @include post-style;
+  }
+
+  & > a {
+    align-self: center;
+  }
 }
