@@ -2,7 +2,7 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2017-08-07T17:12:27+0800
+ * Last Modified: 2017-10-04T21:07:39+0800
  */
 
 // styles. {{{
@@ -34,10 +34,10 @@ a {
 // }}}
 
 // fonts. {{{
-$chinese-fonts: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "STXihei", "Noto Sans CJK SC", "Source Han Sans CN";
-$sans-fonts: "Source Sans Pro", "Segoe UI", Helvetica Neue, Arial, Tahoma, Verdana, $chinese-fonts, sans-serif;
-$serif-fonts: Georgia, "Source Serif Pro", $chinese-fonts, serif;
-$monospace-fonts: Consolas, "Source Code Pro", "Lucida Console", Monaco, "DejaVu Sans Mono", $chinese-fonts, monospace;
+$sans-fonts: "-apple-system", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+$serif-fonts: Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC", "Source Han Serif", "Songti SC", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+$monospace-fonts: "Source Code Pro", Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", monospace;
+
 
 * {
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
