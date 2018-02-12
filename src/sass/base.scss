@@ -2,14 +2,14 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2017-10-04T21:07:39+0800
+ * Last Modified: 2018-02-12T15:42:11+0800
  */
 
-// styles. {{{
-$body-max-width: 768px;
-$body-padding: 24px;
+@import "variables";
 
+// styles. {{{
 * {
+  // remove all margins and paddings.
   margin: 0;
   padding: 0;
 }
@@ -19,27 +19,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ol, ul, div {
+  // cursor just keep arrow style.
   cursor: default;
   line-height: 180%;
 }
 
 ul {
+  // remove ugly dot.
   list-style-type: none;
 }
 
 a {
+  // remove underline.
   text-decoration: none;
 }
 
 // }}}
 
 // fonts. {{{
-$sans-fonts: "-apple-system", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-$serif-fonts: Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC", "Source Han Serif", "Songti SC", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
-$monospace-fonts: "Source Code Pro", Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", monospace;
-
-
 * {
+  // add text blur.
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -75,12 +74,6 @@ h4 {
 // }}}
 
 // colors. {{{
-$title-color: #222222;
-$content-color: #444444;
-$description-color: #AAAAAA;
-$link-color: #444444;
-$link-hover-color: #222222;
-
 h1, h2, h3, h4, h5, h6 {
   color: $title-color;
 }
