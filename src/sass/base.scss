@@ -2,7 +2,7 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2018-02-12T15:42:11+0800
+ * Last Modified: 2018-10-11T12:16:07+0800
  */
 
 @import "variables";
@@ -14,11 +14,19 @@
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 110%;
 }
 
-p, ol, ul, div {
+p,
+ol,
+ul,
+div {
   // cursor just keep arrow style.
   cursor: default;
   line-height: 180%;
@@ -46,12 +54,19 @@ body {
   font-family: $sans-fonts;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $serif-fonts;
   font-weight: normal;
 }
 
-pre, code, kbd {
+pre,
+code,
+kbd {
   font-family: $monospace-fonts;
 }
 
@@ -74,11 +89,17 @@ h4 {
 // }}}
 
 // colors. {{{
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $title-color;
 }
 
-p, li {
+p,
+li {
   color: $content-color;
 }
 

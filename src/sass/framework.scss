@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2017-08-07T16:31:44+0800
+ * Last Modified: 2018-10-11T12:15:57+0800
  */
 
 @import "base";
@@ -57,9 +57,9 @@ body {
   }
 
   & > hr {
-    background-color: #CCCCCC;
+    background-color: #cccccc;
     border: none;
-    color: #CCCCCC;
+    color: #cccccc;
     height: 1px;
     margin: 0 ($body-padding / 2 * -1);
   }

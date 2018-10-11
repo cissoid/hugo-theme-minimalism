@@ -2,27 +2,47 @@
  * File Name: post-summary.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:38+0800
- * Last Modified: 2017-08-07T16:31:48+0800
+ * Last Modified: 2018-10-11T17:08:30+0800
  */
 
 @import "base";
 @import "post";
+@import "variables";
 
 ul.post-summary-list {
+  padding-left: 4px;
+  background-color: #dddddd;
+
   & > li {
-    padding: 12px 0;
+    align-items: baseline;
+    background-color: white;
+    display: flex;
+    padding: 12px 0 12px 8px;
 
-    hr {
-      border: none;
+    &.date:before {
+      background-color: $content-color;
+      border-radius: 50%;
+      content: " ";
+      height: 6px;
+      margin-left: -13px;
+      margin-right: 8px;
+      width: 6px;
+    }
 
-      &:after {
-        color: #AAAAAA;
-        content: "...";
-        display: flex;
-        justify-content: center;
-        letter-spacing: 2em;
-        line-height: 200%;
-        margin-left: 2em;
+    &.post {
+      &:before {
+        background-color: $description-color;
+        border-radius: 50%;
+        content: " ";
+        height: 4px;
+        margin-left: -12px;
+        margin-right: 24px;
+        transition: background-color 0.5s;
+        width: 4px;
+      }
+
+      &:hover:before {
+        background-color: $content-color;
       }
     }
   }
@@ -30,30 +50,12 @@ ul.post-summary-list {
 
 article.post-summary {
   display: flex;
-  flex-direction: column;
 
   & > header {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-
-    h2 {
-      line-height: 110%;
-      padding-bottom: 12px;
-    }
-
-    .description {
-      color: $description-color;
-      line-height: 150%;
-    }
-  }
-
-  & > section {
-    @include post-style;
-  }
-
-  & > a {
-    align-self: center;
+    width: 100%;
   }
 }

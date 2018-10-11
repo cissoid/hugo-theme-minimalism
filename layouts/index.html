@@ -1,17 +1,14 @@
 {{ define "main" }}
 <main>
-    <ul class="post-summary-list">
-    {{ range $idx, $page := first 10 (where .Site.RegularPages "Type" "post") }}
-        {{ if $idx }}
-        <li><hr></li>
-        {{ end }}
-        <li>
-        {{ $page.Render "summary" }}
-        </li>
+    <article class="post">
+    {{ if .Title }}
+        <header>
+            <h1>{{ .Title }}</h1>
+        </header>
     {{ end }}
-    </ul>
-    {{ if gt (len .Site.RegularPages) 10 }}
-    <a href= "{{ "/post/" | relLangURL }}">More posts</a>
-    {{ end }}
+        <section class="post">
+    {{ .Content }}
+        </section>
+    </article>
 </main>
 {{ end }}

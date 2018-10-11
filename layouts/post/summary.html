@@ -1,14 +1,5 @@
 <article class="post-summary">
     <header>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div class="description">
-            <time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time>
-        </div>
+        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
     </header>
-    <section>
-{{ .Summary }}
-    </section>
-{{ if .Truncated }}
-        <a href="{{ .Permalink }}">[Read More...]</a>
-{{ end }}
 </article>

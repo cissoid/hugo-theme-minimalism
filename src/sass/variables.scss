@@ -2,7 +2,7 @@
  * File Name: variables.scss
  * Author: cissoid
  * Created At: 2018-02-12T15:36:35+0800
- * Last Modified: 2018-02-12T15:41:51+0800
+ * Last Modified: 2018-10-11T12:16:33+0800
  */
 
 $body-max-width: 768px;
@@ -10,12 +10,23 @@ $body-padding: 24px;
 
 $title-color: #222222;
 $content-color: #444444;
-$description-color: #AAAAAA;
+$description-color: #aaaaaa;
 $link-color: #444444;
 $link-hover-color: #222222;
 
-$sans-fonts: "-apple-system", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-$serif-fonts: Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC", "Source Han Serif", "Songti SC", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
-$monospace-fonts: "Source Code Pro", Consolas, "Lucida Console", Monaco, "DejaVu Sans Mono", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", monospace;
+$sans-fonts: "-apple-system", "Helvetica Neue", Helvetica, "Nimbus Sans L",
+  Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
+  "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei",
+  "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei,
+  "WenQuanYi Zen Hei Sharp", sans-serif;
+$serif-fonts: Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC",
+  "Source Han Serif", "Songti SC", STSong, "AR PL New Sung", "AR PL SungtiL GB",
+  NSimSun, SimSun, "TW-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+  "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
+  serif;
+$monospace-fonts: "Source Code Pro", Consolas, "Lucida Console", Monaco,
+  "DejaVu Sans Mono", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN",
+  "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei",
+  "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", monospace;
 
 /* vim: filetype=scss */

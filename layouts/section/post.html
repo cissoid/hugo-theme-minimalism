@@ -2,11 +2,17 @@
 <main>
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
     <ul class="post-summary-list">
+    {{ $currentYear := "" }}
+
     {{ range $idx, $page :=  $paginator.Pages }}
-        {{ if $idx }}
-        <li><hr></li>
+        {{ $pageYear := $page.Date.Format "2006" }}
+        {{ if ne $currentYear $pageYear }}
+            {{ $currentYear = $pageYear }}
+        <li class="date">
+            <h2>{{ $currentYear }}</h2>
+        </li>
         {{ end }}
-        <li>
+        <li class="post">
         {{ $page.Render "summary" }}
         </li>
     {{ end }}
