@@ -1,10 +1,8 @@
 {{ define "main" }}
 <main>
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
     <ul class="post-summary-list">
     {{ $currentYear := "" }}
-
-    {{ range $idx, $page :=  $paginator.Pages }}
+    {{ range $idx, $page := where .Site.RegularPages "Type" "post" }}
         {{ $pageYear := $page.Date.Format "2006" }}
         {{ if ne $currentYear $pageYear }}
             {{ $currentYear = $pageYear }}
@@ -16,13 +14,6 @@
         {{ $page.Render "summary" }}
         </li>
     {{ end }}
-    </ul>
-    <ul class="paginator">
-        <li><a href="{{ if ne $paginator.First.URL $paginator.URL }}{{ $paginator.First.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&lt;&lt;</a></li>
-        <li><a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&lt;</a></li>
-        <li>&nbsp;{{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}&nbsp;</li>
-        <li><a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&gt;</a></li>
-        <li><a href="{{ if ne $paginator.Last.URL $paginator.URL }}{{ $paginator.Last.URL | relLangURL }}{{ else }}javascript:void(0){{ end }}">&gt;&gt;</a></li>
     </ul>
 </main>
 {{ end }}

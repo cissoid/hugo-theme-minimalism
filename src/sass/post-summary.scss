@@ -2,7 +2,7 @@
  * File Name: post-summary.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:38+0800
- * Last Modified: 2018-10-11T17:08:30+0800
+ * Last Modified: 2019-01-09T17:55:39+0800
  */
 
 @import "base";
@@ -10,52 +10,26 @@
 @import "variables";
 
 ul.post-summary-list {
-  padding-left: 4px;
-  background-color: #dddddd;
+    & > li {
+        align-items: baseline;
+        background-color: white;
+        display: flex;
+        padding: 12px 0 12px 0;
 
-  & > li {
-    align-items: baseline;
-    background-color: white;
-    display: flex;
-    padding: 12px 0 12px 8px;
-
-    &.date:before {
-      background-color: $content-color;
-      border-radius: 50%;
-      content: " ";
-      height: 6px;
-      margin-left: -13px;
-      margin-right: 8px;
-      width: 6px;
+        &.post {
+            padding-left: 2em;
+        }
     }
-
-    &.post {
-      &:before {
-        background-color: $description-color;
-        border-radius: 50%;
-        content: " ";
-        height: 4px;
-        margin-left: -12px;
-        margin-right: 24px;
-        transition: background-color 0.5s;
-        width: 4px;
-      }
-
-      &:hover:before {
-        background-color: $content-color;
-      }
-    }
-  }
 }
 
 article.post-summary {
-  display: flex;
-
-  & > header {
-    align-items: center;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
-    width: 100%;
-  }
+
+    & > header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        width: 100%;
+    }
 }
