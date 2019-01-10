@@ -7,29 +7,24 @@
             <h1>{{ .Title }}</h1>
             <ul class="description">
                     <li><time>{{ .Date.Format (index .Site.Params "dateformat" | default "2006-01-02") }}</time></li>
-    {{ if (index .Params "tags") }}
-        {{ if ge (len .Params.tags) 0 }}
-                    <li>&nbsp;|&nbsp;</li>
-                    <li>{{ delimit .Params.tags ", " }}</li>
+    {{ with .Params.tags }}
+                    <li>&nbsp;|</li>
+        {{ range . }}
+                    <li>&nbsp;#{{ . }}</li>
         {{ end }}
     {{ end }}
             </ul>
         </header>
-    {{ if .Params.minimalism.cloudmusic }}
+    {{ with .Params.minimalism.cloudmusic }}
         <section class="cloudmusic">
-            <iframe src="//music.163.com/outchain/player?type=2&auto=0&height=66&id={{ .Params.minimalism.cloudmusic }}"></iframe>
+            <iframe src="//music.163.com/outchain/player?type=2&auto=0&height=66&id={{ . }}"></iframe>
         </section>
     {{ end }}
-    {{ if .Params.minimalism.license }}
-        {{ $articleLicense := .Params.minimalism.license }}
+    {{ with (index .Site.Data.minimalism.licenses .Params.minimalism.license) }}
         <section class="license">
-        {{ range $_, $license := .Site.Data.minimalism.licenses.cc }}
-            {{ if eq $license.id $articleLicense }}
             <p>
-                <a rel="license" href="http://creativecommons.org/licenses/{{ $license.id }}/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/{{ $license.id }}/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/{{ $license.id }}/">{{ $license.name }}</a>.
+                <a rel="license" href="http://creativecommons.org/licenses/{{ .id }}/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/{{ .id }}/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/{{ .id }}/">{{ .name }}</a>.
             </p>
-            {{ end }}
-        {{ end }}
         </section>
     {{ end }}
         <section class="post">

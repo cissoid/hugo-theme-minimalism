@@ -1,10 +1,10 @@
 <header>
     <h1><a href="{{ relLangURL "/" }}">{{ .Site.Title }}</a></h1>
-{{ if index .Site.Menus "navbar" }}
+{{ with .Site.Menus.navbar }}
     <nav>
         <ul>
             <li>&nbsp;|&nbsp;</li>
-    {{ range .Site.Menus.navbar }}
+    {{ range . }}
             <li><a href="{{ relLangURL .URL }}">{{ .Name }}</a></li>
             <li>&nbsp;|&nbsp;</li>
     {{ end }}

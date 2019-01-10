@@ -3,9 +3,9 @@
 {{ define "main" }}
 <main>
     <article class="post">
-    {{ if .Title }}
+    {{ with .Title }}
         <header>
-            <h1>{{ .Title }}</h1>
+            <h1>{{ . }}</h1>
         </header>
     {{ end }}
         <section class="post">
