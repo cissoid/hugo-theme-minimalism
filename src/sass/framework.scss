@@ -2,76 +2,76 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2018-10-11T12:15:57+0800
+ * Last Modified: 2019-01-10T11:42:36+0800
  */
 
 @import "base";
 
 html {
-  background-color: rgb(245, 247, 249);
+    background-color: rgb(245, 247, 249);
 }
 
 body {
-  background-color: rgb(254, 254, 254);
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: $body-max-width - $body-padding * 2;
-  min-height: 100vh;
-  padding: 0 $body-padding;
-
-  & > header {
-    align-items: baseline;
+    background-color: rgb(254, 254, 254);
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
     display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: $body-max-width - $body-padding * 2;
+    min-height: 100vh;
+    padding: 0 $body-padding;
 
-    h1 {
-      font-size: 2.5em;
-    }
-
-    nav {
-      ul {
+    & > header {
+        align-items: baseline;
         display: flex;
         justify-content: space-between;
-      }
+        padding: 12px 0;
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            ul {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
-  }
 
-  & > main {
-    flex-grow: 1;
-    padding: 24px 0;
-  }
-
-  & > footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-
-    @media all and (max-width: $body-max-width - 1px) {
-      align-items: flex-end;
-      flex-direction: column;
-      text-align: right;
+    & > main {
+        flex-grow: 1;
+        padding: 24px 0;
     }
-  }
 
-  & > hr {
-    background-color: #cccccc;
-    border: none;
-    color: #cccccc;
-    height: 1px;
-    margin: 0 ($body-padding / 2 * -1);
-  }
+    & > footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+
+        @media all and (max-width: $body-max-width - 1px) {
+            align-items: flex-end;
+            flex-direction: column;
+            text-align: right;
+        }
+    }
+
+    & > hr {
+        background-color: #cccccc;
+        border: none;
+        color: #cccccc;
+        height: 1px;
+        margin: 0 ($body-padding / 2 * -1);
+    }
 }
 
 .paginator {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 12px 0;
 
-  & > li {
-    padding: 0 6px;
-  }
+    & > li {
+        padding: 0 6px;
+    }
 }
