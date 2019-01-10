@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-10T11:42:36+0800
+ * Last Modified: 2019-01-10T11:50:22+0800
  */
 
 @import "base";
@@ -27,12 +27,12 @@ body {
         justify-content: space-between;
         padding: 12px 0;
 
-        h1 {
+        & > h1 {
             font-size: 2.5em;
         }
 
-        nav {
-            ul {
+        & > nav {
+            & > ul {
                 display: flex;
                 justify-content: space-between;
             }
