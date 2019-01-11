@@ -2,24 +2,30 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-10T11:50:22+0800
+ * Last Modified: 2019-01-11T11:33:47+0800
  */
 
-@import "base";
+$framework-html-background-color: #f5f7f9;
+
+$framework-body-max-width: 768px;
+$framework-body-padding: 24px;
+$framework-body-background-color: #fefefe;
+$framework-body-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
 
 html {
-    background-color: rgb(245, 247, 249);
+    background-color: $framework-html-background-color;
 }
 
 body {
-    background-color: rgb(254, 254, 254);
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: $body-max-width - $body-padding * 2;
+    max-width: $framework-body-max-width - $framework-body-padding * 2;
     min-height: 100vh;
-    padding: 0 $body-padding;
+    padding: 0 $framework-body-padding;
+
+    background-color: $framework-body-background-color;
+    box-shadow: $framework-body-box-shadow;
 
     & > header {
         align-items: baseline;
@@ -49,7 +55,7 @@ body {
         justify-content: space-between;
         padding: 12px 0;
 
-        @media all and (max-width: $body-max-width - 1px) {
+        @media all and (max-width: $framework-body-max-width - 1px) {
             align-items: flex-end;
             flex-direction: column;
             text-align: right;
@@ -61,7 +67,7 @@ body {
         border: none;
         color: #cccccc;
         height: 1px;
-        margin: 0 ($body-padding / 2 * -1);
+        margin: 0 ($framework-body-padding / 2 * -1);
     }
 }
 

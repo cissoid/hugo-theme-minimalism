@@ -2,10 +2,30 @@
  * File Name: base.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:19:49+0800
- * Last Modified: 2019-01-10T11:42:34+0800
+ * Last Modified: 2019-01-11T11:21:24+0800
  */
 
-@import "variables";
+$base-title-color: #222222;
+$base-content-color: #444444;
+$base-link-color: $base-content-color;
+$base-link-color-hover: #222222;
+
+$base-text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+$base-sans-fonts: "-apple-system", "Helvetica Neue", Helvetica, "Nimbus Sans L",
+    Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
+    "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei",
+    "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei,
+    "WenQuanYi Zen Hei Sharp", sans-serif;
+$base-serif-fonts: Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC",
+    "Source Han Serif", "Songti SC", STSong, "AR PL New Sung",
+    "AR PL SungtiL GB", NSimSun, SimSun, "TW-Sung", "WenQuanYi Bitmap Song",
+    "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE",
+    PMingLiU, MingLiU, serif;
+$base-monospace-fonts: "Source Code Pro", Consolas, "Lucida Console", Monaco,
+    "DejaVu Sans Mono", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN",
+    "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei",
+    "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp",
+    monospace;
 
 // styles. {{{
 * {
@@ -47,11 +67,11 @@ a {
 // fonts. {{{
 * {
     // add text blur.
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    text-shadow: $base-text-shadow;
 }
 
 body {
-    font-family: $sans-fonts;
+    font-family: $base-sans-fonts;
 }
 
 h1,
@@ -60,14 +80,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $serif-fonts;
+    font-family: $base-serif-fonts;
     font-weight: normal;
 }
 
 pre,
 code,
 kbd {
-    font-family: $monospace-fonts;
+    font-family: $base-monospace-fonts;
 }
 
 h1 {
@@ -95,19 +115,19 @@ h3,
 h4,
 h5,
 h6 {
-    color: $title-color;
+    color: $base-title-color;
 }
 
 p,
 li {
-    color: $content-color;
+    color: $base-content-color;
 }
 
 a {
-    color: $link-color;
+    color: $base-link-color;
 
     &:hover {
-        color: $link-hover-color;
+        color: $base-link-color-hover;
     }
 }
 

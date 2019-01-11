@@ -2,14 +2,20 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2019-01-10T11:45:10+0800
+ * Last Modified: 2019-01-11T11:37:02+0800
  */
 
-@import "variables";
+@import "framework";
+
+$post-padding: $framework-body-padding;
+$post-link-color: #4183c4;
+
+$post-blockquote-background-color: #666666;
+$post-blockquote-padding-left: $framework-body-padding / 4;
 
 @mixin post-style {
     & > * {
-        margin: 24px 0;
+        margin: 1.5em 0;
     }
 
     h1 {
@@ -38,7 +44,7 @@
     }
 
     a {
-        color: #4183c4;
+        color: $post-link-color;
     }
 
     ol {
@@ -51,28 +57,29 @@
     }
 
     blockquote {
-        background-color: #666666;
-        margin: 0 ($body-padding * -1);
-        padding-left: 6px;
+        background-color: $post-blockquote-background-color;
+        margin: 0 ($framework-body-padding * -1);
+        padding-left: $post-blockquote-padding-left;
 
         & > p {
-            background-color: #f5f7f9;
+            background-color: $framework-html-background-color;
             font-style: italic;
-            padding: 1em $body-padding 1em ($body-padding - 6px);
+            padding: 1em $framework-body-padding 1em
+                ($framework-body-padding - 6px);
         }
     }
 
     img {
-        margin: 0 ($body-padding * -1);
-        width: $body-max-width;
+        margin: 0 ($framework-body-padding * -1);
+        width: $framework-body-max-width;
 
-        @media all and (max-width: $body-max-width - 1px) {
+        @media all and (max-width: $framework-body-max-width - 1px) {
             width: 100vw;
         }
     }
 
     code {
-        background-color: $content-code-background-color;
+        background-color: #eeeeee;
         border-radius: 4px;
         border: 1px solid #dddddd;
         margin: 0 2px;
@@ -80,9 +87,9 @@
     }
 
     pre {
-        margin: 0 ($body-padding * -1);
+        margin: 0 ($framework-body-padding * -1);
         overflow-x: auto;
-        padding: 1em $body-padding;
+        padding: 1em $framework-body-padding;
 
         code {
             background-color: initial;
@@ -90,10 +97,6 @@
             border: initial;
             margin: initial;
             padding: initial;
-        }
-
-        @media print {
-            color: $content-color;
         }
     }
 
@@ -144,7 +147,7 @@ article.post {
             justify-content: space-between;
 
             li {
-                color: $description-color;
+                color: #aaaaaa;
             }
         }
     }
@@ -162,13 +165,14 @@ article.post {
 
     & > section.license {
         background-color: #666666;
-        margin: 0 ($body-padding * -1);
+        margin: 0 ($framework-body-padding * -1);
         padding-left: 6px;
 
         & > p {
             background-color: #f5f7f9;
             font-style: italic;
-            padding: 1em $body-padding 1em ($body-padding - 6px);
+            padding: 1em $framework-body-padding 1em
+                ($framework-body-padding - 6px);
 
             a {
                 color: #4183c4;
