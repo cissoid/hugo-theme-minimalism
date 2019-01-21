@@ -6,8 +6,9 @@
     <meta name="theme-color" content="#F5F7F9">
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
-    <link rel="stylesheet" href="{{ "css/minimalism.bundle.css" | relURL }}">
-    {{ block "styles" . }}{{ end }}
+    {{ block "styles" . }}
+    <link rel="stylesheet" href="{{ "css/minimalism.css" | relURL }}">
+    {{ end }}
     {{ template "_internal/google_analytics_async.html" . }}
 </head>
 <body>

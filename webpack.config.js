@@ -3,7 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-const extractCSS = new ExtractTextPlugin(path.join('css', 'minimalism.bundle.css'));
+const extractCSS = new ExtractTextPlugin(path.join('css', 'minimalism.css'));
 
 module.exports = {
     resolve: {
@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'static'),
-        filename: path.join('js', '[name].bundle.js')
+        filename: path.join('js', '[name].js')
     },
     module: {
         rules: [{
