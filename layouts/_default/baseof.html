@@ -22,6 +22,8 @@
 <hr>
     {{ partial "footer.html" . }}
 {{ end }}
-{{ block "scripts" . }}{{ end }}
+{{ block "scripts" . }}
+<script src="{{ "js/minimalism.js" | relURL }}"></script>
+{{ end }}
 </body>
 </html>
