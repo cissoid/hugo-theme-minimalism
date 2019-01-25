@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-11T11:33:47+0800
+ * Last Modified: 2019-01-25T11:58:43+0800
  */
 
 $framework-html-background-color: #f5f7f9;
@@ -10,7 +10,8 @@ $framework-html-background-color: #f5f7f9;
 $framework-body-max-width: 768px;
 $framework-body-padding: 24px;
 $framework-body-background-color: #fefefe;
-$framework-body-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+$framework-body-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
 
 html {
     background-color: $framework-html-background-color;
@@ -48,6 +49,36 @@ body {
     & > main {
         flex-grow: 1;
         padding: 24px 0;
+
+        @keyframes fadeOutDown {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+        }
+        &.out {
+            animation-name: fadeOutDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        &.in {
+            animation-name: fadeInUp;
+            animation-duration: 0.5s;
+        }
     }
 
     & > footer {
