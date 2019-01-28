@@ -1,69 +1,56 @@
 const path = require('path');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
-
-const extractCSS = new ExtractTextPlugin(path.join('css', 'minimalism.css'));
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-    resolve: {
-        modules: [
-            path.join(__dirname, 'src'),
-            'node_modules'
-        ]
-    },
-    entry: {
-        minimalism: 'js/index'
-    },
-    output: {
-        path: path.join(__dirname, 'static'),
-        filename: path.join('js', '[name].js')
-    },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            use: [
-                'babel-loader?cacheDirectory',
-            ]
-        }, {
-            test: /\.scss$/,
-            use: extractCSS.extract({
-                fallback: 'style-loader',
-                use: [
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: function() {
-                                return [
-                                    require('autoprefixer')
-                                ];
-                            }
-                        }
-                    },
-                    'sass-loader'
-                ]
-            })
-        }]
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production'),
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            beautify: false,
-            comments: false
-        }),
-        // new webpack.optimize.AggressiveMergingPlugin()
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        extractCSS
+  mode: 'production',
+  resolve: {
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
     ],
-    node: {
-        Buffer: false
+    alias: {
+      pace: 'pace-progress'
     }
+  },
+  entry: {
+    minimalism: 'js/index'
+  },
+  output: {
+    path: path.join(__dirname, 'static'),
+    filename: path.join('js', '[name].js')
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      use: [
+        'babel-loader',
+      ]
+    }, {
+      test: /\.scss$/,
+      use: [{
+          loader: MiniCssExtractPlugin.loader
+        },
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: function() {
+              return [
+                require('autoprefixer')
+              ];
+            }
+          }
+        },
+        'sass-loader'
+      ]
+    }]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: path.join('css', 'minimalism.css')
+    }),
+    new OptimizeCSSAssetsPlugin({})
+  ]
 };
