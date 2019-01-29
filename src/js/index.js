@@ -2,17 +2,46 @@
  * File Name: index.js
  * Author: cissoid
  * Created At: 2017-04-19T11:07:14+0800
- * Last Modified: 2019-01-28T11:30:19+0800
+ * Last Modified: 2019-01-29T16:28:46+0800
  */
 
 require('sass/style.scss');
 
 const Pjax = require('pjax');
 
+function showLoading() {
+  return new Promise((resolve, reject) => {
+    const mask = document.querySelector('div#mask');
+    mask.removeAttribute('data-pjax-complete');
+    setTimeout(() => {
+      if (mask.hasAttribute('data-pjax-complete')) {
+        return;
+      }
+      mask.style.display = 'block';
+
+      const main = document.querySelector('main');
+      main.style.opacity = 0.5;
+    }, 100);
+
+    resolve();
+  });
+}
+
+function hideLoading() {
+  return new Promise((resolve, reject) => {
+    const mask = document.querySelector('div#mask');
+    mask.setAttribute('data-pjax-complete', '');
+    mask.style.display = 'none';
+
+    resolve();
+  });
+}
+
 window.addEventListener('load', function() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
   }
+
   Pjax.prototype.doRequest = function(location, options, callback) {
     options = options || {};
     const requestOptions = options.requestOptions || {};
@@ -48,7 +77,7 @@ window.addEventListener('load', function() {
       requestHeaders['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
-    fetch(location, {
+    const reqPromise = fetch(location, {
       method: requestMethod,
       headers: requestHeaders,
       body: requestPayload
@@ -58,7 +87,9 @@ window.addEventListener('load', function() {
       } else {
         throw new Error('response status ' + response.status);
       }
-    }).then(function(text) {
+    });
+    Promise.all([reqPromise, showLoading()]).then(values => {
+      const text = values[0];
       const fakeRequest = {
         responseURL: location
       };
@@ -75,26 +106,28 @@ window.addEventListener('load', function() {
       'main': function(oldEl, newEl, options, switchOptions) {
         const _this = this;
         const animationEndEvents = ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oanimationend'];
-        new Promise(function(resolve, reject) {
-          oldEl.classList.add('out');
-          animationEndEvents.forEach(function(e) {
-            oldEl.addEventListener(e, resolve, true);
-          })
-        }).then(function() {
-          const parent = oldEl.parentNode;
-          newEl.hide = true;
-          parent.insertBefore(newEl, oldEl);
-          parent.removeChild(oldEl);
-          _this.onSwitch();
+        hideLoading().then(() => {
           return new Promise(function(resolve, reject) {
-            newEl.classList.add('in');
+            oldEl.classList.add('out');
             animationEndEvents.forEach(function(e) {
-              newEl.addEventListener(e, resolve, true);
+              oldEl.addEventListener(e, resolve, true);
             })
+          }).then(function() {
+            const parent = oldEl.parentNode;
+            newEl.hide = true;
+            parent.insertBefore(newEl, oldEl);
+            parent.removeChild(oldEl);
+            _this.onSwitch();
+            return new Promise(function(resolve, reject) {
+              newEl.classList.add('in');
+              animationEndEvents.forEach(function(e) {
+                newEl.addEventListener(e, resolve, true);
+              })
+            });
+          }).then(function() {
+            newEl.classList.remove('in');
           });
-        }).then(function() {
-          newEl.classList.remove('in');
-        });
+        })
       }
     },
     cacheBust: false
