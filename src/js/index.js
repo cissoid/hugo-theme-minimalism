@@ -2,28 +2,36 @@
  * File Name: index.js
  * Author: cissoid
  * Created At: 2017-04-19T11:07:14+0800
- * Last Modified: 2019-01-29T16:28:46+0800
+ * Last Modified: 2019-01-30T14:56:21+0800
  */
 
 require('sass/style.scss');
 
 const Pjax = require('pjax');
 
+const ANIMATION_END_EVENTS = ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oanimationend'];
+
 function showLoading() {
+  const main = document.querySelector('main');
   return new Promise((resolve, reject) => {
-    const mask = document.querySelector('div#mask');
-    mask.removeAttribute('data-pjax-complete');
-    setTimeout(() => {
-      if (mask.hasAttribute('data-pjax-complete')) {
-        return;
-      }
-      mask.style.display = 'block';
+    main.classList.add('pjax-remove');
+    ANIMATION_END_EVENTS.forEach(e => {
+      main.addEventListener(e, resolve, true);
+    })
+  }).then(() => {
+    main.style.opacity = 0;
+    return new Promise((resolve, reject) => {
+      const mask = document.querySelector('div#mask');
+      mask.removeAttribute('data-pjax-complete');
+      setTimeout(() => {
+        if (mask.hasAttribute('data-pjax-complete')) {
+          return;
+        }
+        mask.style.display = 'block';
+      }, 100);
 
-      const main = document.querySelector('main');
-      main.style.opacity = 0.5;
-    }, 100);
-
-    resolve();
+      resolve();
+    });
   });
 }
 
@@ -37,7 +45,7 @@ function hideLoading() {
   });
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
   }
@@ -54,9 +62,7 @@ window.addEventListener('load', function() {
     let requestHeaders = {};
 
     if (requestParams && requestParams.length) {
-      queryString = (requestParams.map(function(param) {
-        return param.name + "=" + param.value
-      })).join("&")
+      queryString = (requestParams.map(param => param.name + "=" + param.value)).join("&")
 
       switch (requestMethod) {
         case "GET":
@@ -81,7 +87,7 @@ window.addEventListener('load', function() {
       method: requestMethod,
       headers: requestHeaders,
       body: requestPayload
-    }).then(function(response) {
+    }).then(response => {
       if (response.status == 200) {
         return response.text();
       } else {
@@ -94,7 +100,7 @@ window.addEventListener('load', function() {
         responseURL: location
       };
       callback(text, fakeRequest, location, options);
-    }).catch(function(error) {
+    }).catch(error => {
       callback(null, null, location, options);
     });
   };
@@ -104,30 +110,21 @@ window.addEventListener('load', function() {
     switches: {
       // 'title': Pjax.switches.sideBySide,
       'main': function(oldEl, newEl, options, switchOptions) {
-        const _this = this;
-        const animationEndEvents = ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oanimationend'];
+        const parent = oldEl.parentNode;
+        parent.insertBefore(newEl, oldEl);
+        parent.removeChild(oldEl);
+        this.onSwitch();
+
         hideLoading().then(() => {
-          return new Promise(function(resolve, reject) {
-            oldEl.classList.add('out');
-            animationEndEvents.forEach(function(e) {
-              oldEl.addEventListener(e, resolve, true);
+          return new Promise((resolve, reject) => {
+            newEl.classList.add('pjax-add');
+            ANIMATION_END_EVENTS.forEach(e => {
+              newEl.addEventListener(e, resolve, true);
             })
-          }).then(function() {
-            const parent = oldEl.parentNode;
-            newEl.hide = true;
-            parent.insertBefore(newEl, oldEl);
-            parent.removeChild(oldEl);
-            _this.onSwitch();
-            return new Promise(function(resolve, reject) {
-              newEl.classList.add('in');
-              animationEndEvents.forEach(function(e) {
-                newEl.addEventListener(e, resolve, true);
-              })
-            });
-          }).then(function() {
-            newEl.classList.remove('in');
           });
-        })
+        }).then(() => {
+          newEl.classList.remove('pjax-add');
+        });
       }
     },
     cacheBust: false

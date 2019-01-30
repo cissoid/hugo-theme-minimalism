@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-29T15:53:02+0800
+ * Last Modified: 2019-01-30T14:12:58+0800
  */
 
 $framework-html-background-color: #f5f7f9;
@@ -60,7 +60,7 @@ body {
                 transform: translateY(12px);
             }
         }
-        &.out {
+        &.pjax-remove {
             animation-name: fadeOutDown;
             animation-duration: 0.25s;
         }
@@ -75,7 +75,7 @@ body {
                 opacity: 1;
             }
         }
-        &.in {
+        &.pjax-add {
             animation-name: fadeInUp;
             animation-duration: 0.25s;
         }
@@ -126,7 +126,7 @@ body {
                 animation: loading-ripple 1s cubic-bezier(0, 0.2, 0.8, 1)
                     infinite;
                 border-radius: 50%;
-                border: 4px solid #000000;
+                border: 4px solid #444444;
                 opacity: 1;
                 position: absolute;
             }
