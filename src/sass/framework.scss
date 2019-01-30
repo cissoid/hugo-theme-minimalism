@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-30T14:12:58+0800
+ * Last Modified: 2019-01-30T15:56:51+0800
  */
 
 $framework-html-background-color: #f5f7f9;
@@ -113,7 +113,7 @@ body {
 
         & > div#loading {
             bottom: 0;
-            display: inline-block;
+            display: block;
             height: 64px;
             left: 0;
             margin: auto;
@@ -122,33 +122,49 @@ body {
             top: 0;
             width: 64px;
 
-            & > div {
-                animation: loading-ripple 1s cubic-bezier(0, 0.2, 0.8, 1)
-                    infinite;
-                border-radius: 50%;
-                border: 4px solid #444444;
-                opacity: 1;
-                position: absolute;
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
             }
 
-            & > div:nth-child(2) {
-                animation-delay: -0.5s;
-            }
-        }
-        @keyframes loading-ripple {
-            0% {
-                height: 0;
-                left: 28px;
-                opacity: 1;
-                top: 28px;
-                width: 0;
-            }
-            100% {
-                height: 58px;
-                left: -1px;
-                opacity: 0;
-                top: -1px;
+            & > div {
+                display: block;
                 width: 58px;
+                height: 58px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: #444444;
+                animation: spin 2s linear infinite;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    right: 6px;
+                    bottom: 6px;
+                    border-radius: 50%;
+                    border: 3px solid transparent;
+                    border-top-color: #888888;
+                    animation: spin 3s linear infinite;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 16px;
+                    left: 16px;
+                    right: 16px;
+                    bottom: 16px;
+                    border-radius: 50%;
+                    border: 3px solid transparent;
+                    border-top-color: #cccccc;
+                    animation: spin 1.5s linear infinite;
+                }
             }
         }
     }
