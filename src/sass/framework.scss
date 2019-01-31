@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-30T15:56:51+0800
+ * Last Modified: 2019-01-30T17:24:10+0800
  */
 
 $framework-html-background-color: #f5f7f9;
@@ -114,13 +114,13 @@ body {
         & > div#loading {
             bottom: 0;
             display: block;
-            height: 64px;
+            height: 48px;
             left: 0;
             margin: auto;
             position: fixed;
             right: 0;
             top: 0;
-            width: 64px;
+            width: 48px;
 
             @keyframes spin {
                 0% {
@@ -133,8 +133,8 @@ body {
 
             & > div {
                 display: block;
-                width: 58px;
-                height: 58px;
+                width: 42px;
+                height: 42px;
                 border-radius: 50%;
                 border: 3px solid transparent;
                 border-top-color: #444444;
@@ -143,10 +143,10 @@ body {
                 &:before {
                     content: "";
                     position: absolute;
-                    top: 6px;
-                    left: 6px;
-                    right: 6px;
-                    bottom: 6px;
+                    top: 3px;
+                    left: 3px;
+                    right: 3px;
+                    bottom: 3px;
                     border-radius: 50%;
                     border: 3px solid transparent;
                     border-top-color: #888888;
@@ -156,10 +156,10 @@ body {
                 &:after {
                     content: "";
                     position: absolute;
-                    top: 16px;
-                    left: 16px;
-                    right: 16px;
-                    bottom: 16px;
+                    top: 9px;
+                    left: 9px;
+                    right: 9px;
+                    bottom: 9px;
                     border-radius: 50%;
                     border: 3px solid transparent;
                     border-top-color: #cccccc;
