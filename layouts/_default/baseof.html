@@ -7,31 +7,31 @@
   <meta name="theme-color" content="#F5F7F9">
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
-  {{ block "styles" . }}
+{{ block "styles" . }}
   <link rel="stylesheet" href="{{ "css/minimalism.css" | relURL }}">
-  {{ end }}
-  {{ block "scripts" . }}
-  <script src="{{ "js/minimalism.js" | relURL }}"></script>
-  {{ end }}
-  {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+{{ template "_internal/google_analytics_async.html" . }}
 </head>
 
 <body>
-  {{ block "header" . }}
+{{ block "header" . }}
   {{ partial "header.html" . }}
   <hr>
-  {{ end }}
-  {{ block "main" . }}{{ end }}
-  {{ block "aside" . }}{{ end }}
-  {{ block "footer" . }}
+{{ end }}
+{{ block "main" . }}{{ end }}
+{{ block "aside" . }}{{ end }}
+{{ block "footer" . }}
   <hr>
   {{ partial "footer.html" . }}
-  {{ end }}
+{{ end }}
   <div id="mask">
     <div id="loading">
       <div></div>
     </div>
   </div>
+{{ block "scripts" . }}
+  <script src="{{ "js/minimalism.js" | relURL }}"></script>
+{{ end }}
 </body>
 
 </html>
