@@ -2,7 +2,7 @@
  * File Name: framework.scss
  * Author: cissoid
  * Created At: 2017-04-19T16:16:12+0800
- * Last Modified: 2019-01-30T17:24:10+0800
+ * Last Modified: 2019-05-21T14:41:26+0800
  */
 
 $framework-html-background-color: #f5f7f9;
@@ -17,6 +17,50 @@ html {
     background-color: $framework-html-background-color;
 }
 
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(var(--offsetY));
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(var(--offsetY));
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-home {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(var(--offsetY));
+    }
+}
+
+@keyframes fade-in-home {
+    from {
+        opacity: 0;
+        transform: translateY(var(--offsetY));
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -29,19 +73,85 @@ body {
     box-shadow: $framework-body-box-shadow;
 
     & > header {
-        align-items: baseline;
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
+        & > div.container {
+            padding: 12px 0;
+            align-items: baseline;
+            display: flex;
+            justify-content: space-between;
 
-        & > h1 {
-            font-size: 2.5em;
+            & > h1 {
+                font-size: 2.5em;
+            }
+
+            & > nav {
+                & > ul {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
         }
 
-        & > nav {
-            & > ul {
+        & > hr {
+            background-color: #cccccc;
+            border: none;
+            color: #cccccc;
+            height: 1px;
+            margin: 0 ($framework-body-padding / 2 * -1);
+        }
+
+        &.pjax-remove {
+            --offsetY: -12px;
+            animation-name: fade-out;
+            animation-duration: 0.25s;
+        }
+
+        &.pjax-add {
+            --offsetY: -12px;
+            animation-name: fade-in;
+            animation-duration: 0.25s;
+        }
+
+        &.home {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+
+            & > div.container {
                 display: flex;
+                flex-direction: column;
                 justify-content: space-between;
+                align-items: center;
+
+                & > h1 {
+                    font-size: 4em;
+                    margin: 24px 0;
+                }
+
+                & > nav {
+                    & > ul {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        & > li {
+                            margin: 12px 0;
+                        }
+                    }
+                }
+            }
+
+            &.pjax-remove {
+                --offsetY: -24px;
+                animation-name: fade-out-home;
+                animation-duration: 0.25s;
+            }
+
+            &.pjax-add {
+                --offsetY: -24px;
+                animation-name: fade-in-home;
+                animation-duration: 0.25s;
             }
         }
     }
@@ -50,55 +160,50 @@ body {
         flex-grow: 1;
         padding: 24px 0;
 
-        @keyframes fadeOutDown {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-        }
         &.pjax-remove {
-            animation-name: fadeOutDown;
+            --offsetY: 12px;
+            animation-name: fade-out;
             animation-duration: 0.25s;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
         &.pjax-add {
-            animation-name: fadeInUp;
+            --offsetY: 12px;
+            animation-name: fade-in;
             animation-duration: 0.25s;
         }
     }
 
     & > footer {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-
-        @media all and (max-width: $framework-body-max-width - 1px) {
-            align-items: flex-end;
-            flex-direction: column;
-            text-align: right;
+        & > hr {
+            background-color: #cccccc;
+            border: none;
+            color: #cccccc;
+            height: 1px;
+            margin: 0 ($framework-body-padding / 2 * -1);
         }
-    }
 
-    & > hr {
-        background-color: #cccccc;
-        border: none;
-        color: #cccccc;
-        height: 1px;
-        margin: 0 ($framework-body-padding / 2 * -1);
+        & > div.container {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            @media all and (max-width: $framework-body-max-width - 1px) {
+                align-items: flex-end;
+                flex-direction: column;
+                text-align: right;
+            }
+        }
+
+        &.pjax-remove {
+            --offsetY: 12px;
+            animation-name: fade-out;
+            animation-duration: 0.25s;
+        }
+
+        &.pjax-add {
+            --offsetY: 12px;
+            animation-name: fade-in;
+            animation-duration: 0.25s;
+        }
     }
 
     & > div#mask {

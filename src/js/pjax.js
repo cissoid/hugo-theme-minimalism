@@ -2,7 +2,7 @@
  * File Name: pjax.js
  * Author: cissoid
  * Created At: 2019-02-01T14:50:41+0800
- * Last Modified: 2019-02-01T17:54:38+0800
+ * Last Modified: 2019-02-02T15:03:10+0800
  */
 const ANIMATION_END_EVENTS = ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oanimationend'];
 
@@ -62,7 +62,9 @@ class Pjax {
           window.scrollTo(0, 0);
         }
         this.replaceElement('title', document, newDocument);
+        this.replaceElement('header', document, newDocument);
         this.replaceElement('main', document, newDocument);
+        this.replaceElement('footer', document, newDocument);
       })
       .then(() => this.stopLoading());
   }
@@ -76,15 +78,8 @@ class Pjax {
   }
 
   startLoading() {
-    const main = document.querySelector('main');
-    return new Promise((resolve, reject) => {
-        main.classList.add('pjax-remove');
-        ANIMATION_END_EVENTS.forEach(e => {
-          main.addEventListener(e, resolve, true);
-        })
-      })
+    return Promise.all([this.hideElement('header'), this.hideElement('main'), this.hideElement('footer')])
       .then(() => {
-        main.style.opacity = 0;
         return new Promise((resolve, reject) => {
           const mask = document.querySelector('div#mask');
           mask.removeAttribute('data-pjax-complete');
@@ -101,7 +96,6 @@ class Pjax {
   }
 
   stopLoading() {
-    const main = document.querySelector('main');
     return new Promise((resolve, reject) => {
         const mask = document.querySelector('div#mask');
         mask.setAttribute('data-pjax-complete', '');
@@ -109,19 +103,33 @@ class Pjax {
         resolve();
       })
       .then(() => {
-        return new Promise((resolve, reject) => {
-          main.classList.add('pjax-add');
-          ANIMATION_END_EVENTS.forEach(e => {
-            main.addEventListener(e, resolve, true);
-          })
-        });
-      })
-      .then(() => {
-        main.classList.remove('pjax-add');
+        return Promise.all([this.showElement('header'), this.showElement('main'), this.showElement('footer')]);
       });
   }
 
+  hideElement(selector) {
+    const element = document.querySelector(selector);
+    return new Promise((resolve, reject) => {
+      element.classList.add('pjax-remove');
+      ANIMATION_END_EVENTS.forEach(e => {
+        element.addEventListener(e, resolve, true);
+      })
+    }).then(() => {
+      element.style.opacity = 0;
+    });
+  }
 
+  showElement(selector) {
+    const element = document.querySelector(selector);
+    return new Promise((resolve, reject) => {
+      element.classList.add('pjax-add');
+      ANIMATION_END_EVENTS.forEach(e => {
+        element.addEventListener(e, resolve, true);
+      })
+    }).then(() => {
+      element.classList.remove('pjax-add');
+    });
+  }
 }
 
 module.exports = Pjax;

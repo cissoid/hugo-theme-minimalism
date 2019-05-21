@@ -1,14 +1,17 @@
 <header>
-    <h1><a href="{{ relLangURL "/" }}">{{ .Site.Title }}</a></h1>
+    <div class="container">
+        <h1><a href="{{ relLangURL "/" }}">{{ .Site.Title }}</a></h1>
 {{ with .Site.Menus.navbar }}
-    <nav>
-        <ul>
-            <li>&nbsp;|&nbsp;</li>
+        <nav>
+            <ul>
+                <li>&nbsp;|&nbsp;</li>
     {{ range . }}
-            <li><a href="{{ relLangURL .URL }}">{{ .Name }}</a></li>
-            <li>&nbsp;|&nbsp;</li>
+                <li><a href="{{ relLangURL .URL }}">{{ .Name }}</a></li>
+                <li>&nbsp;|&nbsp;</li>
     {{ end }}
-        </ul>
-    </nav>
+            </ul>
+        </nav>
 {{ end }}
+    </div>
+    <hr>
 </header>

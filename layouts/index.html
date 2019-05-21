@@ -1,14 +1,31 @@
-{{ define "main" }}
-<main>
-    <article class="post">
-    {{ with .Title }}
-        <header>
-            <h1>{{ . }}</h1>
-        </header>
+{{ define "header" }}
+<header class="home">
+    <div class="container">
+        <h1>{{ .Site.Title }}</h1>
+{{ with .Site.Menus.navbar }}
+        <nav>
+            <ul>
+    {{ range . }}
+                <li><a href="{{ relLangURL .URL }}">{{ .Name }}</a></li>
     {{ end }}
-        <section class="post">
-    {{ .Content }}
-        </section>
-    </article>
+            </ul>
+        </nav>
+{{ end }}
+    </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<main class="home">
+    <style>
+        body {
+            max-width: 100%;
+            padding: 0;
+        }
+    </style>
 </main>
+{{ end }}
+
+{{ define "footer" }}
+<footer class="home"></footer>
 {{ end }}
