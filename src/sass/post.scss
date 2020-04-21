@@ -2,7 +2,7 @@
  * File Name: post.scss
  * Author: cissoid
  * Created At: 2017-04-20T15:46:27+0800
- * Last Modified: 2019-01-22T17:00:19+0800
+ * Last Modified: 2020-04-21T17:48:09+0800
  */
 
 @import "framework";
@@ -126,6 +126,11 @@ $post-blockquote-padding-left: $framework-body-padding / 4;
             border: 1px solid #dddddd;
             padding: 6px 12px;
         }
+    }
+
+    del {
+        background-color: $base-content-color;
+        text-decoration: none;
     }
 }
 
